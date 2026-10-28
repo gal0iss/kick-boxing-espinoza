@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Consulta por horarios, cupos, planes y valores vigentes de Kickboxing Espinoza en San Miguel.">
+  <title>Horarios y planes — Kickboxing Espinoza (KBE)</title>
+  <link rel="icon" type="image/png" href="assets/images/kbe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <kbe-header></kbe-header>
+  <main id="contenido" class="page-content">
+    <section class="schedule-section section-pad" id="horarios">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> HORARIOS</p>
+            <h1 class="page-title">ORGANIZA TU<br><em>PRÓXIMO ENTRENAMIENTO.</em></h1>
+          </div>
+          <p class="section-aside">Revisa los horarios informados y confirma los días y la disponibilidad antes de asistir.</p>
+        </div>
+        <div class="schedule-layout">
+          <section class="schedule-block" aria-labelledby="horario-am">
+            <span class="schedule-index">AM</span>
+            <h2 id="horario-am">Mañana</h2>
+            <table class="schedule-table">
+              <thead>
+                <tr><th scope="col">Hora</th><th scope="col">Entrenamiento</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><time datetime="09:00">09:00 h</time></td><td>Kick boxing</td></tr>
+                <tr><td><time datetime="10:00">10:00 h</time></td><td>Kick boxing</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="schedule-block" aria-labelledby="horario-pm">
+            <span class="schedule-index">PM</span>
+            <h2 id="horario-pm">Tarde / noche</h2>
+            <table class="schedule-table">
+              <thead>
+                <tr><th scope="col">Hora</th><th scope="col">Entrenamiento</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><time datetime="18:00">18:00 h</time></td><td>Preparación física</td></tr>
+                <tr><td><time datetime="18:00">18:00 h</time></td><td>Kick boxing</td></tr>
+                <tr><td><time datetime="19:00">19:00 h</time></td><td>Preparación física</td></tr>
+                <tr><td><time datetime="19:00">19:00 h</time></td><td>Kick boxing</td></tr>
+                <tr><td><time datetime="20:00">20:00 h</time></td><td>Kick boxing y K1</td></tr>
+                <tr><td><time datetime="21:00">21:00 h</time></td><td>Kick boxing y K1</td></tr>
+                <tr><td><time datetime="21:00">21:00 h</time></td><td>Muay Thai</td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+        <div class="schedule-contact">
+          <p><strong>Importante:</strong> confirma los días de cada clase y los cupos disponibles con KBE.</p>
+          <a class="button button-red" href="contacto.html?interest=Horarios">Consultar horarios <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans-section section-pad" id="planes">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> PLANES</p>
+            <h2>ENCUENTRA LA<br><em>ALTERNATIVA PARA TI.</em></h2>
+          </div>
+          <p class="section-aside">Consulta directamente por precios, cupos, matrícula y condiciones vigentes.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan-card">
+            <span class="plan-number">01 / GRUPAL</span>
+            <h3>Entrenamiento grupal</h3>
+            <p>Consulta por frecuencia, horarios disponibles y condiciones de inscripción.</p>
+            <p class="plan-price">Valor: por confirmar</p>
+            <a class="card-link" href="contacto.html?interest=Planes%20grupales">Consultar plan grupal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="plan-card">
+            <span class="plan-number">02 / PERSONALIZADO</span>
+            <h3>Entrenamiento personalizado</h3>
+            <p>Pregunta por coordinación, disponibilidad y valores de las sesiones.</p>
+            <p class="plan-price">Valor: por confirmar</p>
+            <a class="card-link" href="contacto.html?interest=Planes%20personalizados">Consultar plan personalizado <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="plan-card">
+            <span class="plan-number">03 / INICIO</span>
+            <h3>Clase de prueba</h3>
+            <p>Consulta si hay disponibilidad y cuáles son las condiciones para probar una clase.</p>
+            <p class="plan-price">Disponibilidad: por confirmar</p>
+            <a class="card-link" href="contacto.html?interest=Clase%20de%20prueba">Consultar clase de prueba <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="section-disclaimer">No hay precios ni condiciones comerciales confirmados en esta página. Solicita la información actual antes de inscribirte.</p>
+      </div>
+    </section>
+  </main>
+  <kbe-footer></kbe-footer>
+  <kbe-whatsapp></kbe-whatsapp>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
