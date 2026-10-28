@@ -10,6 +10,7 @@ if (yearElement) {
 }
 
 initMobileMenu();
+initTheme();
 initContactForm();
 initInterestLinks();
 initScrollAnimations();
@@ -53,6 +54,38 @@ function initMobileMenu() {
 
     setMenuOpen(false);
   });
+}
+
+function initTheme() {
+  const toggle = document.querySelector(".theme-toggle");
+  if (!toggle) return;
+
+  let savedTheme = null;
+  try {
+    savedTheme = window.localStorage.getItem("kbe-theme");
+  } catch (error) {
+    console.warn("No se pudo leer la preferencia de tema guardada.", error);
+  }
+  const initialTheme = savedTheme === "light" ? "light" : "dark";
+  setTheme(initialTheme);
+
+  toggle.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    try {
+      window.localStorage.setItem("kbe-theme", nextTheme);
+    } catch (error) {
+      console.warn("No se pudo guardar la preferencia de tema.", error);
+    }
+  });
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const nextLabel = theme === "light" ? "Modo oscuro" : "Modo claro";
+    toggle.setAttribute("aria-label", `Activar ${nextLabel.toLowerCase()}`);
+    toggle.querySelector("span").textContent = nextLabel;
+  }
 }
 
 function initContactForm() {
@@ -130,7 +163,7 @@ function initScrollAnimations() {
   }
 
   const sections = document.querySelectorAll(
-    "main > section:not(.hero):not(.quote-band)"
+    "main > section:not(.hero)"
   );
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {

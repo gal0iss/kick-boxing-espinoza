@@ -33,6 +33,16 @@ class KbeHeader extends HTMLElement {
           </button>
           <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
             ${links}
+            <button class="theme-toggle" type="button" aria-label="Activar modo claro">
+              <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+              </svg>
+              <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.6 8.6 0 1 0 12 12Z"></path>
+              </svg>
+              <span class="visually-hidden">Modo claro</span>
+            </button>
           </nav>
         </div>
       </header>`;

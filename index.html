@@ -18,7 +18,7 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <kbe-header></kbe-header>
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
     <section class="hero" id="inicio">
       <div class="hero-photo" role="img" aria-label="Fotografía ilustrativa de entrenamiento de kickboxing"></div>
       <div class="hero-shade"></div>
@@ -74,14 +74,6 @@
       </div>
     </section>
 
-    <section class="quote-band" aria-label="Frase de KBE">
-      <div class="container quote-inner">
-        <span class="quote-mark" aria-hidden="true">“</span>
-        <p>La constancia se construye<br><em>entrenamiento a entrenamiento.</em></p>
-        <span class="quote-rule"></span>
-      </div>
-    </section>
-
     <section class="schedule-section section-pad" id="horarios">
       <div class="container">
         <div class="section-heading">
@@ -89,7 +81,47 @@
             <p class="eyebrow"><span></span> PLANES Y HORARIOS</p>
             <h2>ENCUENTRA TU<br><em>MOMENTO PARA ENTRENAR.</em></h2>
           </div>
-          <p class="section-aside">Confirma horarios, cupos, precios y condiciones directamente con KBE.</p>
+          <p class="section-aside">Encuentra un horario que se acomode a tu día. Los días de cada clase, cupos y valores se confirman directamente con KBE.</p>
+        </div>
+        <div class="schedule-highlights" aria-label="Resumen de horarios y modalidades">
+          <article class="schedule-highlight">
+            <span class="schedule-highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+            </span>
+            <div>
+              <span class="schedule-highlight-label">POR LA MAÑANA</span>
+              <h3>09:00 y 10:00 h</h3>
+              <p>Clases de kick boxing</p>
+            </div>
+          </article>
+          <article class="schedule-highlight">
+            <span class="schedule-highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.6 8.6 0 1 0 12 12Z" />
+                <path d="M16 3v4M14 5h4" />
+              </svg>
+            </span>
+            <div>
+              <span class="schedule-highlight-label">TARDE Y NOCHE</span>
+              <h3>18:00 a 21:00 h</h3>
+              <p>Alternativas de entrenamiento para cerrar el día</p>
+            </div>
+          </article>
+          <article class="schedule-highlight">
+            <span class="schedule-highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="m12 3 2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z" />
+              </svg>
+            </span>
+            <div>
+              <span class="schedule-highlight-label">TRES MODALIDADES</span>
+              <h3>Elige tu entrenamiento</h3>
+              <p>Kick boxing, preparación física y Muay Thai</p>
+            </div>
+          </article>
         </div>
         <div class="schedule-layout">
           <article class="schedule-block">

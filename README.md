@@ -11,7 +11,7 @@ Sitio web estático de la Academia Kickboxing Espinoza, ubicada en San Miguel, S
 | `entrenamientos.html` | Kick boxing, preparación física y Muay Thai. |
 | `horarios.html` | Horarios de mañana y tarde/noche, además de información sobre planes. |
 | `contacto.html` | Orientación para empezar y formulario que prepara un mensaje para WhatsApp. |
-| `tienda.html` | Información sobre la tienda online, que aún no tiene catálogo ni compras disponibles. |
+| `tienda.html` | Catálogo de equipamiento Gradivus con precios y enlaces para consultar por WhatsApp. |
 
 ## Estructura
 
@@ -28,35 +28,26 @@ Sitio web estático de la Academia Kickboxing Espinoza, ubicada en San Miguel, S
 ├── styles.css
 ├── README.md
 └── assets/
+    ├── catalogo/
+    │   ├── bucal.png
+    │   ├── cabezal.png
+    │   ├── canilleras.png
+    │   ├── shorts.png
+    │   ├── thai pads.png
+    │   └── vendas.png
     └── images/
         ├── kbe.png
         ├── kickboxing.jpg
-        ├── muaythai.jpg
-        └── kbe-logo-reference.jpg
+        └── muaythai.jpg
 ```
 
 ### Recursos visuales
 
 - `assets/images/kbe.png`: logo utilizado en la navegación, la portada y como favicon.
 - `assets/images/kickboxing.jpg` y `assets/images/muaythai.jpg`: imágenes de las tarjetas de esas modalidades.
-- `assets/images/kbe-logo-reference.jpg`: imagen de logo conservada como recurso de referencia; actualmente no se muestra en las páginas.
+- `assets/catalogo/`: fotografías de los seis productos Gradivus publicados en la tienda.
 - La imagen de preparación física y el fondo de la portada se cargan desde Unsplash. Requieren conexión a internet.
 
-## Ejecutar localmente
-
-No se necesita instalar dependencias ni compilar el proyecto.
-
-1. Abre una terminal en la carpeta del proyecto.
-2. Inicia un servidor local:
-
-   ```powershell
-   py -m http.server 8000
-   ```
-
-3. Abre [http://localhost:8000](http://localhost:8000) en el navegador.
-4. Para detener el servidor, vuelve a la terminal y presiona `Ctrl+C`.
-
-También se puede abrir `index.html` directamente en un navegador; un servidor local suele ser más fiable para probar rutas y recursos.
 
 ## Tecnologías
 
@@ -64,6 +55,7 @@ También se puede abrir `index.html` directamente en un navegador; un servidor l
 - CSS en `styles.css` para la presentación y el diseño adaptable.
 - JavaScript sin dependencias externas en `components.js` y `script.js`.
 - Componentes web reutilizables para la navegación, el pie de página y el acceso flotante a WhatsApp.
+- Selector de modo oscuro/claro en la navegación; la preferencia se guarda en el navegador.
 - Fuentes Barlow Condensed e Inter cargadas desde Google Fonts.
 
 ## Contacto y privacidad
