@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Demostración local con datos ficticios del sistema de reservas KBE.">
+  <title>Demo local — Kickboxing Espinoza</title>
+  <link rel="icon" type="image/png" href="assets/images/kbe.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="demo-banner" role="status">
+    <strong>DEMO LOCAL · DATOS FICTICIOS</strong>
+    <span>Sin conexión a Supabase. Los cambios se guardan solo en memoria y se pierden al recargar. No es un panel autenticado.</span>
+  </div>
+  <kbe-header></kbe-header>
+  <main id="contenido" class="page-content admin-page" tabindex="-1">
+    <section class="section-pad admin-shell">
+      <div class="container">
+        <div class="section-heading admin-heading">
+          <div>
+            <p class="eyebrow"><span></span> ENTORNO DE PRUEBA</p>
+            <h1 class="page-title">RESERVAS<br><em>DE DEMOSTRACIÓN.</em></h1>
+          </div>
+          <a class="button button-dark" href="horarios.html">Volver a horarios</a>
+        </div>
+
+        <section class="demo-summary" aria-label="Resumen ficticio de hoy">
+          <article class="admin-summary-card"><span>RESERVAS DE HOY</span><strong id="demo-summary-reservations">0</strong></article>
+          <article class="admin-summary-card"><span>CLASES DE HOY</span><strong id="demo-summary-classes">0</strong></article>
+          <article class="admin-summary-card"><span>OCUPACIÓN DE HOY</span><strong id="demo-summary-occupancy">0%</strong><small id="demo-summary-capacity">0 cupos</small></article>
+        </section>
+
+        <div class="demo-grid">
+          <section class="admin-card" aria-labelledby="demo-book-heading">
+            <div class="admin-card-header"><h2 id="demo-book-heading">Reservar un cupo</h2></div>
+            <form class="admin-form" id="demo-book-form" novalidate>
+              <div class="form-group">
+                <label for="demo-class">Clase</label>
+                <select id="demo-class" required></select>
+              </div>
+              <div class="form-group">
+                <label for="demo-name">Nombre ficticio</label>
+                <input id="demo-name" type="text" maxlength="80" placeholder="Ej: Alumno Demo" required>
+              </div>
+              <div class="form-group">
+                <label for="demo-phone">Teléfono ficticio</label>
+                <input id="demo-phone" type="tel" maxlength="20" placeholder="Ej: +56900000001" required>
+              </div>
+              <button class="button button-red" id="demo-book-submit" type="submit">Probar reserva</button>
+              <p class="form-status" id="demo-book-status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="admin-card" aria-labelledby="demo-class-heading">
+            <div class="admin-card-header"><h2 id="demo-class-heading">Clases ficticias</h2></div>
+            <div class="classes-list" id="demo-classes" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <section class="admin-card demo-reservations" aria-labelledby="demo-reservations-heading">
+          <div class="admin-card-header"><h2 id="demo-reservations-heading">Panel administrativo simulado</h2></div>
+          <p class="demo-notice">Esta vista solo simula funciones visuales. No requiere inicio de sesión y no autoriza acciones reales.</p>
+          <div class="reservation-filters">
+            <div class="form-group">
+              <label for="demo-search">Buscar alumno o teléfono</label>
+              <input id="demo-search" type="search" placeholder="Buscar">
+            </div>
+            <div class="form-group">
+              <label for="demo-date">Fecha de clase</label>
+              <input id="demo-date" type="date">
+            </div>
+            <div class="form-group">
+              <label for="demo-status">Estado</label>
+              <select id="demo-status">
+                <option value="all">Todos</option>
+                <option value="confirmed">Confirmadas</option>
+                <option value="cancelled">Canceladas</option>
+              </select>
+            </div>
+            <button class="button button-dark" id="demo-clear-filters" type="button">Limpiar filtros</button>
+          </div>
+          <div class="reservation-list" id="demo-reservations-list" aria-live="polite"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <kbe-footer></kbe-footer>
+  <kbe-whatsapp></kbe-whatsapp>
+  <script src="reservation-utils.js"></script>
+  <script src="components.js"></script>
+  <script src="demo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

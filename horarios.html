@@ -65,6 +65,62 @@
       </div>
     </section>
 
+    <section class="reservation-section section-pad" id="reservas">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> RESERVAS</p>
+            <h2>RESERVA TU<br><em>CUPA EN SEGUNDO.</em></h2>
+          </div>
+          <p class="section-aside">Consulta las clases publicadas y reserva un cupo según la disponibilidad vigente.</p>
+        </div>
+        <div class="reservation-layout">
+          <div class="reservation-panel">
+            <div class="reservation-header">
+              <h3>Próximas clases</h3>
+              <p id="class-list-status">Cargando disponibilidad...</p>
+            </div>
+            <div class="class-list" id="class-list" aria-live="polite"></div>
+          </div>
+          <form class="reservation-form" id="reservation-form" novalidate>
+            <div class="form-heading">
+              <span>RESERVA / 01</span>
+              <p>Completa los datos para confirmar tu cupo.</p>
+            </div>
+            <div class="form-group">
+              <label for="reservation-class">Clase disponible</label>
+              <select id="reservation-class" name="class" required>
+                <option value="">Selecciona una clase</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reservation-name">Nombre del alumno</label>
+              <input id="reservation-name" name="name" type="text" maxlength="80" placeholder="Tu nombre" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="reservation-phone">Teléfono</label>
+              <input id="reservation-phone" name="phone" type="tel" maxlength="20" placeholder="Ej: +56912345678" autocomplete="tel" required>
+            </div>
+            <button class="button button-dark button-wide" id="reservation-send-code" type="button">Enviar código SMS</button>
+            <div class="form-group" id="reservation-code-group" hidden>
+              <label for="reservation-code">Código de verificación</label>
+              <input id="reservation-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" pattern="[0-9]{6,10}" placeholder="Código recibido por SMS">
+              <button class="button button-dark button-wide" id="reservation-verify-code" type="button">Verificar teléfono</button>
+            </div>
+            <p class="form-note">Para reservar, verifica por SMS que controlas el teléfono. El proveedor de SMS puede aplicar costos.</p>
+            <div class="form-group">
+              <label for="reservation-email">Correo electrónico <span>(opcional)</span></label>
+              <input id="reservation-email" name="email" type="email" maxlength="120" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+            </div>
+            <button class="button button-red button-wide" id="reservation-submit" type="submit" disabled>Reservar cupo</button>
+            <p class="reservation-status" id="reservation-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <p class="section-disclaimer">Para gestionar la reserva, el nombre, teléfono verificado y correo opcional se guardan en Supabase. El código de verificación se envía por SMS mediante el proveedor configurado por KBE.</p>
+        <p class="section-disclaimer">¿Quieres explorar la interfaz sin Supabase? <a href="demo.html">Abre la demo local con datos ficticios</a>. No ingreses datos reales: la demo no confirma reservas.</p>
+      </div>
+    </section>
+
     <section class="plans-section section-pad" id="planes">
       <div class="container">
         <div class="section-heading">
@@ -103,6 +159,14 @@
   </main>
   <kbe-footer></kbe-footer>
   <kbe-whatsapp></kbe-whatsapp>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    window.KBE_SUPABASE_CONFIG = {
+      url: "",
+      anonKey: ""
+    };
+  </script>
+  <script src="reservation-utils.js"></script>
   <script src="components.js"></script>
   <script src="script.js"></script>
 </body>

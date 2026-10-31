@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Panel privado del profesor para administrar clases y reservas de KBE.">
+  <title>Panel del profesor — Kickboxing Espinoza</title>
+  <link rel="icon" type="image/png" href="assets/images/kbe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <kbe-header></kbe-header>
+  <main id="contenido" class="page-content admin-page" tabindex="-1">
+    <section class="section-pad admin-shell">
+      <div class="container">
+        <div class="section-heading admin-heading">
+          <div>
+            <p class="eyebrow"><span></span> PANEL</p>
+            <h1 class="page-title">ADMINISTRACIÓN<br><em>DEL PROFESOR.</em></h1>
+          </div>
+          <div class="admin-toolbar">
+            <button class="button button-dark admin-logout" id="admin-logout" type="button" hidden>Salir</button>
+          </div>
+        </div>
+
+        <div class="admin-auth" id="admin-auth">
+          <form class="admin-login" id="admin-login-form" novalidate>
+            <div class="form-heading">
+              <span>ACCESO / 01</span>
+              <p>Inicia sesión con la cuenta administrativa.</p>
+            </div>
+            <div class="form-group">
+              <label for="admin-email">Correo electrónico</label>
+              <input id="admin-email" name="email" type="email" autocomplete="email" placeholder="profesor@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+              <label for="admin-password">Contraseña</label>
+              <input id="admin-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+            </div>
+            <button class="button button-red button-wide" type="submit">Ingresar al panel</button>
+            <p class="form-status" id="admin-login-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="admin-dashboard" id="admin-dashboard" hidden>
+          <p class="admin-dashboard-status" id="admin-dashboard-status" role="status" aria-live="polite"></p>
+          <nav class="admin-nav" aria-label="Navegación del panel">
+            <a href="#admin-summary">Resumen</a>
+            <a href="#admin-create">Crear clase</a>
+            <a href="#admin-reservations">Reservas</a>
+            <a href="#admin-classes">Clases</a>
+          </nav>
+          <section class="admin-summary" id="admin-summary" aria-label="Resumen de hoy">
+            <article class="admin-summary-card">
+              <span>RESERVAS DE HOY</span>
+              <strong id="summary-reservations">—</strong>
+            </article>
+            <article class="admin-summary-card">
+              <span>CLASES DE HOY</span>
+              <strong id="summary-classes">—</strong>
+            </article>
+            <article class="admin-summary-card">
+              <span>OCUPACIÓN DE HOY</span>
+              <strong id="summary-occupancy">—</strong>
+              <small id="summary-capacity"></small>
+            </article>
+          </section>
+          <div class="admin-grid">
+            <section class="admin-card" id="admin-create" aria-labelledby="admin-clases-heading">
+              <div class="admin-card-header">
+                <h2 id="admin-clases-heading">Crear o editar clase</h2>
+              </div>
+              <form class="admin-form" id="class-form" novalidate>
+                <input id="class-id" type="hidden">
+                <div class="form-group">
+                  <label for="class-title">Nombre de la clase</label>
+                  <input id="class-title" type="text" maxlength="120" placeholder="Kick boxing / preparación física" required>
+                </div>
+                <div class="form-group">
+                  <label for="class-starts">Inicio</label>
+                  <input id="class-starts" type="datetime-local" required>
+                </div>
+                <div class="form-group">
+                  <label for="class-ends">Fin (opcional)</label>
+                  <input id="class-ends" type="datetime-local">
+                </div>
+                <div class="form-group">
+                  <label for="class-capacity">Capacidad</label>
+                  <input id="class-capacity" type="number" min="1" max="100" value="25" required>
+                </div>
+                <div class="form-group">
+                  <label for="class-status">Estado</label>
+                  <select id="class-status">
+                    <option value="published">Publicada</option>
+                    <option value="draft">Borrador</option>
+                    <option value="cancelled">Cancelada</option>
+                  </select>
+                </div>
+                <div class="admin-actions">
+                  <button class="button button-red" type="submit">Guardar clase</button>
+                  <button class="button button-dark" id="reset-class-form" type="button">Limpiar</button>
+                </div>
+                <p class="form-status" id="class-form-status" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <section class="admin-card" id="admin-reservations" aria-labelledby="reservas-heading">
+              <div class="admin-card-header">
+                <h2 id="reservas-heading">Reservas</h2>
+              </div>
+              <div class="reservation-filters">
+                <div class="form-group">
+                  <label for="reservation-search">Buscar alumno, teléfono o clase</label>
+                  <input id="reservation-search" type="search" placeholder="Nombre, teléfono, correo o clase">
+                </div>
+                <div class="form-group">
+                  <label for="reservation-date-filter">Fecha de clase</label>
+                  <input id="reservation-date-filter" type="date">
+                </div>
+                <div class="form-group">
+                  <label for="reservation-status-filter">Estado</label>
+                  <select id="reservation-status-filter">
+                    <option value="all">Todos</option>
+                    <option value="confirmed">Confirmadas</option>
+                    <option value="cancelled">Canceladas</option>
+                  </select>
+                </div>
+                <button class="button button-dark" id="clear-reservation-filters" type="button">Limpiar filtros</button>
+              </div>
+              <div class="reservation-list" id="reservation-list" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <section class="admin-card admin-classes-card" id="admin-classes" aria-labelledby="clases-list-heading">
+            <div class="admin-card-header">
+              <h2 id="clases-list-heading">Clases próximas</h2>
+            </div>
+            <div class="classes-list" id="classes-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <kbe-footer></kbe-footer>
+  <kbe-whatsapp></kbe-whatsapp>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    window.KBE_SUPABASE_CONFIG = {
+      url: "",
+      anonKey: ""
+    };
+  </script>
+  <script src="reservation-utils.js"></script>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
